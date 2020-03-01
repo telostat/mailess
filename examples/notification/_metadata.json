@@ -1,0 +1,15 @@
+{
+  "from": "'Fatih Koksal' <fatih@telostat.com>",
+  "to": ["ali@telostat.com", "Vehbi Sinan Tunalioglu <sinan@telostat.com>"],
+  "cc": ["Vehbi Sinan Tunalioglu <vst@vsthost.com>"],
+  "bcc": ["fatihkoksal@gmail.com"],
+  "subject": "Example Notification",
+  "context": {
+    "title": "Sample Notification Email",
+    "preview": "You have a new notification",
+    "logo": "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
+    "body": "Dear User,\n\nWe are sending you this email because we would like to!\n\nSee the attachments for how much we care about you...\n\nLove,\nThe Team",
+    "notes": "**Privacy Information:** Ullamco commodo magna dolor incididunt ex. Reprehenderit incididunt quis laborum culpa elit ad proident elit laborum sit Lorem culpa magna labore. Ipsum esse qui ad et excepteur nisi qui voluptate amet minim. Quis dolore cillum est eu in magna amet cupidatat anim nisi magna ea. Velit laborum officia est eiusmod eiusmod deserunt velit consequat.",
+    "footer": "6A Shenton Way, #04-01 OUE Downtown Gallery, Singapore 068815\nTelostat Pte Ltd"
+  }
+}

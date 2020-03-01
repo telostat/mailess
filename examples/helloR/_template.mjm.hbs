@@ -1,0 +1,67 @@
+<mjml>
+  <mj-head>
+    {{#if title}}
+      <mj-title>{{title}}</mj-title>
+    {{/if}}
+    {{#if preview}}
+      <mj-preview>{{preview}}</mj-preview>
+    {{/if}}
+    <mj-attributes>
+      <mj-all font-family="Montserrat, Helvetica, Arial, sans-serif"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#333333" line-height="24px"></mj-text>
+    </mj-attributes>
+    <mj-style inline="inline">
+      .x-container {
+        -webkit-box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.10);
+        -moz-box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.10);
+        box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.10);
+        border-radius: 2px;
+        background-color: white;
+        border: 1px solid #E9E9E9;
+        width: 600px;
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#F2F2F2">
+    {{#if logo}}
+      <mj-column width="100%" padding-top="20px">
+        {{#if logowidth}}
+          <mj-image width="{{logowidth}}" src="{{logo}}" />
+        {{else}}
+          <mj-image width="180px" src="{{logo}}" />
+        {{/if}}
+      </mj-column>
+    {{/if}}
+
+    <mj-wrapper padding-top="20px">
+      <mj-section css-class="x-container">
+        <mj-column width="100%" css-class="markdown-content">
+          <mj-text>
+            {{#markdown}}{{body}}{{/markdown}}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+
+    {{#if notes}}
+      <mj-section padding="0px 0 10px 0">
+        <mj-column>
+          <mj-text color="#7B7B7B" font-size="11px" line-height="16px" padding-right="5px" padding-left="5px">
+            {{#markdown}}{{notes}}{{/markdown}}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    {{/if}}
+
+    {{#if footer}}
+      <mj-section padding="0px 0 20px 0">
+        <mj-column>
+          <mj-text align="center" color="#9B9B9B" font-size="11px" line-height="16px" padding="0px 0px 5px 0px">
+            {{#markdown}}{{footer}}{{/markdown}}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    {{/if}}
+  </mj-body>
+</mjml>

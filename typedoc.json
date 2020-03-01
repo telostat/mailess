@@ -1,0 +1,9 @@
+{
+  "out": "docs",
+  "inputFiles": "./src",
+  "mode": "modules",
+  "theme": "default",
+  "excludeNotExported": true,
+  "includeVersion": true,
+  "categorizeByGroup": true
+}
