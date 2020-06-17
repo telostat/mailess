@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/vst/mailess",
+  "repository": "https://github.com/telostat/mailess",
   "license": "MIT",
   "keywords": [],
   "scripts": {
