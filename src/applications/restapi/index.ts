@@ -63,7 +63,7 @@ export function runApplication(config: AppConfig): void {
     { name: 'metadata', maxCount: 1 },
     { name: 'templatemjm', maxCount: 1 },
     { name: 'templatetxt', maxCount: 1 },
-    { name: 'attachments', maxCount: 6 },
+    { name: 'attachments' },
   ]);
 
   // Define endpoints:
