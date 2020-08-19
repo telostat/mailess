@@ -1,6 +1,7 @@
-import { compileProgram, Program } from '../algebra';
+import { compileProgram, Program, Sender } from '../algebra';
 import { makeHandlebarsMjmlRenderer } from './renderers';
 import { makeSmtpSender, SimpleSMTPConfig } from './senders';
+import { Content } from './generic';
 
 /**
  * Compiles an SMTP mailer for emails with templated MJML/HTML and TXT content.
@@ -13,7 +14,7 @@ export function templatedMjmlEmailer(
   smtpConfig: SimpleSMTPConfig,
   htmTemplate: string,
   txtTemplate?: string
-): Program<object, string> {
+): Program<Sender<Content, string>, string> {
   return compileProgram(makeSmtpSender(smtpConfig), makeHandlebarsMjmlRenderer(htmTemplate, txtTemplate));
 }
 

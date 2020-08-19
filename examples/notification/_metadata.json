@@ -1,4 +1,8 @@
 {
+  "smtp": {
+    "host": "localhost",
+    "port": 1025
+  },
   "from": "'Fatih Koksal' <fatih@telostat.com>",
   "to": ["ali@telostat.com", "Vehbi Sinan Tunalioglu <sinan@telostat.com>"],
   "cc": ["Vehbi Sinan Tunalioglu <vst@vsthost.com>"],

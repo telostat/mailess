@@ -41,9 +41,9 @@ export function makeSmtpSender(config: SimpleSMTPConfig): Sender<Content, string
     // Attempt to send the mail:
     const info = await makeTransport(config).sendMail({
       from: from,
-      to: recipients.filter(x => x.type == RecipientType.To).map(x => x.addr),
-      cc: recipients.filter(x => x.type == RecipientType.Cc).map(x => x.addr),
-      bcc: recipients.filter(x => x.type == RecipientType.Bcc).map(x => x.addr),
+      to: recipients.filter((x) => x.type == RecipientType.To).map((x) => x.addr),
+      cc: recipients.filter((x) => x.type == RecipientType.Cc).map((x) => x.addr),
+      bcc: recipients.filter((x) => x.type == RecipientType.Bcc).map((x) => x.addr),
       subject: subject,
       text: content.text,
       html: content.html,

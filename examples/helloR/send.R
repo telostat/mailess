@@ -11,15 +11,24 @@ Mailer <- R6::R6Class("Mailer", list(
     self$templatetxt = templatetxt
   },
 
-  send = function(subject = NA, from = NA, to = NA, cc = NA, bcc = NA, context = NA, attachments = NA) {
+  send = function(subject = NA, from = NA, to = NA, cc = NA, bcc = NA, context = NA, attachments = NA, smtp = NA) {
     ## Start checks:
     stopifnot(is.character(subject), length(subject) == 1, nchar(subject) > 0)
     stopifnot(is.character(from), length(from) == 1, nchar(from) > 0)
     stopifnot(any(as.logical(Map(is.character, list(to, cc, bcc)))))
     stopifnot(any(as.numeric(Map(nchar, unlist(list(to, cc, bcc), recursive=TRUE))) > 0))
+    stopifnot(!is.na(smtp))
 
     ## Prepare the metadata:
-    metadata <- list(subject = jsonlite::unbox(subject), from = jsonlite::unbox(from), to = to, cc = cc, bcc = bcc, context = context)
+    metadata <- list(
+      smtp = lapply(smtp, function(x) jsonlite::unbox(x)),
+      subject = jsonlite::unbox(subject),
+      from = jsonlite::unbox(from),
+      to = to,
+      cc = cc,
+      bcc = bcc,
+      context = context
+    )
 
     ## Get the temporary directory path:
     tmpdir <- tempfile()
@@ -86,6 +95,10 @@ mailer <- Mailer$new(
 )
 
 mailer$send(
+  smtp = list(
+    host = "localhost",
+    port = 1025
+  ),
   subject = "Example Email with MJML/HTML and TXT Content (R)",
   from = "\"Fatih Koksal <fatih@telostat.com>\"",
   to = c("ali@telostat.com", "Vehbi Sinan Tunalioglu <sinan@telostat.com>"),
