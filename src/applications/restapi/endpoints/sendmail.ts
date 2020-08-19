@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { Address, Attachments, Recipient, RecipientType } from '../../../commons';
 import { templatedMjmlEmailer } from '../../../implementations/programs';
+import { SimpleSMTPConfig } from '../../../implementations/senders';
 import { isNonEmptyArray, MailessError, NonEmptyArray, readFile } from '../../../prelude';
 import { flattenUploadedFiles } from '../index';
 
@@ -8,10 +9,7 @@ import { flattenUploadedFiles } from '../index';
  * Provides an encoding for desired input for this endpoint.
  */
 interface Input {
-  host: string;
-  port: number;
-  user: string;
-  pass: string;
+  smtpConfig: SimpleSMTPConfig;
   subject: string;
   from: Address;
   recipients: NonEmptyArray<Recipient>;
@@ -74,14 +72,8 @@ function readRequest(request: Request): Promise<Input> {
       const metadata = JSON.parse(metadataC);
 
       // Check metadata fields:
-      if (!metadata.host) {
-        throw new MailessError('Required metadata field "host" is not provided.');
-      } else if (!metadata.port) {
-        throw new MailessError('Required metadata field "port" is not provided.');
-      } else if (!metadata.user) {
-        throw new MailessError('Required metadata field "user" is not provided.');
-      } else if (!metadata.pass) {
-        throw new MailessError('Required metadata field "pass" is not provided.');
+      if (!metadata?.smtp.host) {
+        throw new MailessError('Required metadata field "smtp.host" is not provided.');
       } else if (!metadata.subject) {
         throw new MailessError('Required metadata field "subject" is not provided.');
       } else if (!metadata.from) {
@@ -102,10 +94,12 @@ function readRequest(request: Request): Promise<Input> {
 
       // Done, return:
       return {
-        host: metadata.host,
-        port: metadata.port,
-        user: metadata.user,
-        pass: metadata.pass,
+        smtpConfig: {
+          host: metadata?.smtp.host,
+          port: metadata?.smtp.port,
+          user: metadata?.smtp.username,
+          pass: metadata?.smtp.password,
+        },
         subject: `${metadata.subject}`,
         from: `${metadata.from}`,
         recipients: recipients,
@@ -129,11 +123,7 @@ export async function sendmail(request: Request, response: Response): Promise<vo
   readRequest(request)
     .then((input) => {
       // Compile the Mailess program:
-      const program = templatedMjmlEmailer(
-        { host: input.host, port: input.port, user: input.user, pass: input.user },
-        input.mjmTemplate,
-        input.txtTemplate
-      );
+      const program = templatedMjmlEmailer(input.smtpConfig, input.mjmTemplate, input.txtTemplate);
 
       // Run the Mailess program and return:
       program(input.subject, input.from, input.recipients, input.context, input.attachments).then(

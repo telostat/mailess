@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { Address, Attachments, Recipient, RecipientType } from '../../../commons';
 import { templatedMjmlEmailer } from '../../../implementations/programs';
+import { SimpleSMTPConfig } from '../../../implementations/senders';
 import { isNonEmptyArray, MailessError, NonEmptyArray, readFile } from '../../../prelude';
 import { flattenUploadedFiles } from '../index';
 
@@ -90,6 +91,7 @@ const txtTemplate = `{{body}}
  * Provides an encoding for desired input for this endpoint.
  */
 interface Input {
+  smtpConfig: SimpleSMTPConfig;
   subject: string;
   from: Address;
   recipients: NonEmptyArray<Recipient>;
@@ -141,7 +143,9 @@ function readRequest(request: Request): Promise<Input> {
     const metadata = JSON.parse(metadataC);
 
     // Check metadata fields:
-    if (!metadata.subject) {
+    if (!metadata?.smtp.host) {
+      throw new MailessError('Required metadata field "smtpHost" is not provided.');
+    } else if (!metadata.subject) {
       throw new MailessError('Required metadata field "subject" is not provided.');
     } else if (!metadata.from) {
       throw new MailessError('Required metadata field "from" is not provided.');
@@ -161,6 +165,12 @@ function readRequest(request: Request): Promise<Input> {
 
     // Done, return:
     return {
+      smtpConfig: {
+        host: metadata?.smtp.host,
+        port: metadata?.smtp.port,
+        user: metadata?.smtp.username,
+        pass: metadata?.smtp.password,
+      },
       subject: `${metadata.subject}`,
       from: `${metadata.from}`,
       recipients: recipients,
