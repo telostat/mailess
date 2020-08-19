@@ -39,7 +39,7 @@ docker run --rm -p 1025:25 -p 1080:80 tophfr/mailcatcher:0.7.1
 Run the development server:
 
 ```
-MAILESS_USERNAME="u" MAILESS_PASSWORD="p" MAILESS_HOST="localhost" MAILESS_PORT="1025" yarn start
+yarn start
 ```
 
 Send an email:
@@ -54,16 +54,10 @@ Check http://localhost:1080 for the incoming mail.
 ## Testing
 
 ```
-MAILESS_USERNAME="u" MAILESS_PASSWORD="p" MAILESS_HOST="localhost" MAILESS_PORT="1025" yarn test
+yarn test
 ```
 
 ## Production
-
-Duplicate the `.env_example` as `.env` file and fill it properly:
-
-```
-cp .env_example .env
-```
 
 Build the image:
 ```

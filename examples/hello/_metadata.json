@@ -1,4 +1,8 @@
 {
+  "host": "localhost",
+  "port": 1025,
+  "user": "u",
+  "pass": "pass",
   "from": "'Fatih Koksal' <fatih@telostat.com>",
   "to": ["ali@telostat.com", "Vehbi Sinan Tunalioglu <sinan@telostat.com>"],
   "cc": ["Vehbi Sinan Tunalioglu <vst@vsthost.com>"],
