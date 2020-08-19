@@ -193,14 +193,8 @@ export async function notification(request: Request, response: Response): Promis
   // Attempt to get input:
   readRequest(request)
     .then((input) => {
-      // Get environment variables:
-      const host = process.env.MAILESS_HOST || 'localhost';
-      const port = Number(process.env.MAILESS_PORT || '1025');
-      const user = process.env.MAILESS_USERNAME || 'u';
-      const pass = process.env.MAILESS_PASSWORD || 'p';
-
       // Compile the Mailess program:
-      const program = templatedMjmlEmailer({ host, port, user, pass }, input.mjmTemplate, input.txtTemplate);
+      const program = templatedMjmlEmailer(input.smtpConfig, input.mjmTemplate, input.txtTemplate);
 
       // Run the Mailess program and return:
       program(input.subject, input.from, input.recipients, input.context, input.attachments).then(
