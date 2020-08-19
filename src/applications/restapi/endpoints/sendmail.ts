@@ -28,7 +28,7 @@ interface Input {
  * @param files Files to filter.
  */
 function getFilesByFieldName(fieldname: string, files: Array<Express.Multer.File>): Array<Express.Multer.File> {
-  return files.filter(x => x.fieldname == fieldname);
+  return files.filter((x) => x.fieldname == fieldname);
 }
 
 /**
@@ -50,7 +50,10 @@ function readRequest(request: Request): Promise<Input> {
   const txtTemplate = getFilesByFieldName('templatetxt', files)[0];
 
   // Get attachments:
-  const attachments = getFilesByFieldName('attachments', files).map(x => ({ filename: x.originalname, path: x.path }));
+  const attachments = getFilesByFieldName('attachments', files).map((x) => ({
+    filename: x.originalname,
+    path: x.path,
+  }));
 
   // Check if we have missing files:
   if (metadata === undefined) {
@@ -121,11 +124,10 @@ function readRequest(request: Request): Promise<Input> {
  * @param request HTTP request.
  * @param response HTTP response.
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export async function sendmail(request: Request, response: Response) {
+export async function sendmail(request: Request, response: Response): Promise<void> {
   // Attempt to get input:
   readRequest(request)
-    .then(input => {
+    .then((input) => {
       // Compile the Mailess program:
       const program = templatedMjmlEmailer(
         { host: input.host, port: input.port, user: input.user, pass: input.user },
@@ -135,8 +137,8 @@ export async function sendmail(request: Request, response: Response) {
 
       // Run the Mailess program and return:
       program(input.subject, input.from, input.recipients, input.context, input.attachments).then(
-        ret => response.send({ status: 'SUCCESS', data: ret }),
-        err => {
+        (ret) => response.send({ status: 'SUCCESS', data: ret }),
+        (err) => {
           if (err instanceof MailessError) {
             response.status(400).send({ status: 'ERROR', data: err.message });
           } else {
@@ -146,7 +148,7 @@ export async function sendmail(request: Request, response: Response) {
         }
       );
     })
-    .catch(err => {
+    .catch((err) => {
       if (err instanceof MailessError) {
         response.status(400).send({ status: 'ERROR', data: err.message });
       } else {

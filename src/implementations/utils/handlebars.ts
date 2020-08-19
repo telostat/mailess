@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import handlebars from 'handlebars';
-// @ts-ignore
+// @ts-expect-error
 import markdown from 'helper-markdown';
 
 // Register `markdown` handlerbars helper:
