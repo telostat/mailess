@@ -1,4 +1,4 @@
-FROM node:10.16.0-alpine as build
+FROM node:12.18.3-alpine as build
 
 WORKDIR /usr/src/app
 
@@ -6,7 +6,7 @@ COPY src ./src
 COPY package.json tsconfig.json webpack.config.js ./
 RUN yarn install && yarn build
 
-FROM mhart/alpine-node:slim-10.16.0
+FROM mhart/alpine-node:slim-12.18.3
 
 WORKDIR /app
 
