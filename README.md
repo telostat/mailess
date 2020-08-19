@@ -39,7 +39,7 @@ docker run --rm -p 1025:25 -p 1080:80 tophfr/mailcatcher:0.7.1
 Run the development server:
 
 ```
-MAILESS_USERNAME="u" MAILESS_PASSWORD="p" MAILESS_HOST="localhost" MAILESS_PORT="1025" yarn dev
+MAILESS_USERNAME="u" MAILESS_PASSWORD="p" MAILESS_HOST="localhost" MAILESS_PORT="1025" yarn start
 ```
 
 Send an email:

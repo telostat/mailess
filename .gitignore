@@ -151,7 +151,6 @@ temp/
 
 build
 node_modules
-build
 test
 src/**.js
 .idea/*
