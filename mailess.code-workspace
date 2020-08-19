@@ -1,0 +1,17 @@
+{
+        "folders": [
+                {
+                        "path": "."
+                }
+        ],
+        "settings": {
+                "typescript.tsdk": "node_modules/typescript/lib"
+        },
+        "extensions": {
+                "recommendations": [
+		  "attilabuti.vscode-mjml",
+		  "chaliy.handlebars-preview",
+		  "tyriar.lorem-ipsum"
+                ]
+        }
+}

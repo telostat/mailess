@@ -1,0 +1,7 @@
+.github
+.vscode
+*.code-workspace
+coverage
+examples
+node_modules
+uploads
