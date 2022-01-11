@@ -54,7 +54,7 @@ export function makeHandlebarsMjmlRenderer<T>(htmTemplate: string, txtTemplate?:
 
       // Compile the generic content and return:
       return Promise.resolve({ text, html });
-    } catch (exc) {
+    } catch (exc: any) {
       return Promise.reject(new MailessError('Can not render email content', exc));
     }
   };
