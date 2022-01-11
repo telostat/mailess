@@ -6,6 +6,6 @@ import mjml2html from 'mjml';
  * @param mjml MJML content.
  * @returns HTML content.
  */
-export function renderMjml<T>(mjml: string): string {
+export function renderMjml(mjml: string): string {
   return mjml2html(mjml).html;
 }
