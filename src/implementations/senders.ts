@@ -12,6 +12,7 @@ export interface SimpleSMTPConfig {
   port?: number;
   user?: string;
   pass?: string;
+  secure?: boolean;
 }
 
 /**
