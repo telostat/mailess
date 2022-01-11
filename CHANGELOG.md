@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/telostat/mailess/compare/0.0.1...0.0.2) (2022-01-11)
+
+
+### Features
+
+* add secure flag to smtp configuration ([29e4d50](https://github.com/telostat/mailess/commit/29e4d508ae0a5ddf153b8a7b8a291f3b6f0a7fac))
+
+
+### Bug Fixes
+
+* use config object instead of SMTP URI for creating transports ([3fe63d8](https://github.com/telostat/mailess/commit/3fe63d87ac0a38b0909807f14b7b3d7937edd3a0))
+
 ### 0.0.1 (2020-08-19)
 
 
