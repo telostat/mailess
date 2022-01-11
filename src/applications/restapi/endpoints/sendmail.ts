@@ -97,8 +97,9 @@ function readRequest(request: Request): Promise<Input> {
         smtpConfig: {
           host: metadata?.smtp.host,
           port: metadata?.smtp.port,
-          user: metadata?.smtp.username,
-          pass: metadata?.smtp.password,
+          user: metadata?.smtp?.username,
+          pass: metadata?.smtp?.password,
+          secure: metadata?.smtp?.secure,
         },
         subject: `${metadata.subject}`,
         from: `${metadata.from}`,
