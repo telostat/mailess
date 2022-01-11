@@ -1,6 +1,6 @@
 {
   "name": "mailess",
-  "version": "0.0.1",
+  "version": "0.0.2-SNAPSHOT",
   "description": "Send mail, less",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('mailess must be installed with Yarn: https://yarnpkg.com/')\""
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "dependencies": {
     "express": "^4.17.1",

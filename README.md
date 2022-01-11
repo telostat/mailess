@@ -69,3 +69,17 @@ Run the container:
 ```
 docker run --init --env-file .env -p 3300:3300 mailess:latest
 ```
+
+## Release Process
+
+```
+git checkout master
+git merge --no-ff develop
+./node_modules/.bin/standard-version -t "" --dry-run  # Check output
+./node_modules/.bin/standard-version -t ""
+git push --follow-tags origin master
+git checkout develop
+git rebase master
+## Bump development version, for example from 0.0.1 to 0.0.2-SNAPSHOT
+git commit -am "chore: bump development version to 0.0.2-SNAPSHOT"
+```
