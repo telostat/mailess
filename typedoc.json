@@ -1,9 +1,7 @@
 {
   "out": "docs",
-  "inputFiles": "./src",
-  "mode": "modules",
+  "entryPoints": ["src/index.ts"],
   "theme": "default",
-  "excludeNotExported": true,
   "includeVersion": true,
   "categorizeByGroup": true
 }

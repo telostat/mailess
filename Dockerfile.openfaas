@@ -5,7 +5,7 @@ FROM node:16.13.1-alpine as build
 WORKDIR /usr/src/app
 
 COPY src ./src
-COPY package.json tsconfig.json webpack.config.js ./
+COPY package.json tsconfig.json webpack.config.js typedoc.json ./
 RUN yarn install && yarn build
 
 FROM node:16.13.1-alpine
