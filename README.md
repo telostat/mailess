@@ -60,14 +60,28 @@ yarn test
 ## Production
 
 Build the image:
+
 ```
 docker build --no-cache . -t mailess
+```
+
+.. or using OpenFaaS:
+
+```
+docker build -f Dockerfile.openfaas --no-cache . -t mailess
 ```
 
 Run the container:
 
 ```
-docker run --init --env-file .env -p 3300:3300 mailess:latest
+docker run --rm --network host mailess
+```
+
+... and run examples:
+
+```
+cd examples/hello
+bash send.sh
 ```
 
 ## Release Process
