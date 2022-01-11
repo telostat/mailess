@@ -22,7 +22,15 @@ export interface SimpleSMTPConfig {
  * @returns A [[Mail]] instance as a transport agent to use send mails through.
  */
 function makeTransport(config: SimpleSMTPConfig): Mail {
-  return createTransport(encodeURI(`smtp://${config.user}:${config.pass}@${config.host}:${config.port}`));
+  return createTransport({
+    host: config.host,
+    port: config.port,
+    auth: {
+      user: config.user,
+      pass: config.pass,
+    },
+    secure: config.secure,
+  });
 }
 
 /**
