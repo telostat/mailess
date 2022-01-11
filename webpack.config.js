@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const { NODE_ENV = 'production' } = process.env;
+
 module.exports = {
   entry: './src/index.ts',
   mode: NODE_ENV,
@@ -28,15 +28,6 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          mangle: false,
-          compress: {
-            toplevel: true,
-          },
-        },
-      }),
-    ],
+    minimizer: [() => ({ terserOptions: { mangle: false } })],
   },
 };

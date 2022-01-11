@@ -118,7 +118,7 @@ function getFilesByFieldName(fieldname: string, files: Array<Express.Multer.File
  */
 function readRequest(request: Request): Promise<Input> {
   // Get all uploaded files:
-  const files = flattenUploadedFiles(request.files);
+  const files = flattenUploadedFiles(request.files || []);
 
   // Get metadata file:
   const metadata = getFilesByFieldName('metadata', files)[0];
