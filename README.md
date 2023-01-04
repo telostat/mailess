@@ -36,9 +36,10 @@ Run mailcatcher:
 docker run --rm -p 1025:25 -p 1080:80 tophfr/mailcatcher:0.7.1
 ```
 
-Run the development server:
+Build the app and run the development server:
 
 ```
+yarn build
 yarn start
 ```
 
@@ -50,6 +51,20 @@ bash send.sh
 ```
 
 Check http://localhost:1080 for the incoming mail.
+
+## Dependency Upgrades
+
+To check the outdated dependencies:
+
+```sh
+ncu
+```
+
+To upgrade them:
+
+```sh
+ncu -u
+```
 
 ## Testing
 
