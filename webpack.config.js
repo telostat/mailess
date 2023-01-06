@@ -15,6 +15,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
     alias: {
       handlebars: 'handlebars/dist/handlebars.min.js',
+      'html-minifier': path.resolve(__dirname, './node_modules/html-minifier-terser/dist/htmlminifier.cjs')
     },
   },
   module: {
