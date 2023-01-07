@@ -102,13 +102,11 @@ bash send.sh
 ## Release Process
 
 ```
-git checkout master
-git merge --no-ff develop
 ./node_modules/.bin/standard-version -t "" --dry-run  # Check output
 ./node_modules/.bin/standard-version -t ""
 git push --follow-tags origin master
-git checkout develop
-git rebase master
-## Bump development version, for example from 0.0.1 to 0.0.2-SNAPSHOT
+docker build -f Dockerfile.openfaas --no-cache . -t telostat/mailess:openfaas-0.0.1
+docker push telostat/mailess:openfaas-0.0.1
+## Bump development version (for example from 0.0.1 to 0.0.2-SNAPSHOT) in package.json
 git commit -am "chore: bump development version to 0.0.2-SNAPSHOT"
 ```
