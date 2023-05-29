@@ -1,4 +1,4 @@
-import { fromString as asTxt } from 'html-to-text';
+import { htmlToText as asTxt } from 'html-to-text';
 import { Renderer } from '../algebra';
 import { MailessError } from '../prelude';
 import { Content } from './generic';
