@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.10](https://github.com/telostat/mailess/compare/0.0.9...0.0.10) (2023-05-30)
+
+
+### Bug Fixes
+
+* specify image tag name manually ([cd2ddd6](https://github.com/telostat/mailess/commit/cd2ddd6b878f197f9298fc2ca194cef06eba7dbe))
+
 ## [0.0.9](https://github.com/telostat/mailess/compare/0.0.8...0.0.9) (2023-05-30)
 
 
