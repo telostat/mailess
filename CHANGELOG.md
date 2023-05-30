@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.11](https://github.com/telostat/mailess/compare/0.0.10...0.0.11) (2023-05-30)
+
+
+### Bug Fixes
+
+* override image file not image context ([081b048](https://github.com/telostat/mailess/commit/081b04800272e7ad145aebccf9b345ba03f0f72a))
+
 ## [0.0.10](https://github.com/telostat/mailess/compare/0.0.9...0.0.10) (2023-05-30)
 
 
