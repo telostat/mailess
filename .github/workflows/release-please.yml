@@ -42,7 +42,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: mailess:${{ steps.release.outputs.tag_name }}
+          tags: ghcr.io/telostat/mailess:${{ steps.release.outputs.tag_name }}
           labels: ${{ steps.meta.outputs.labels }}
         if: ${{ steps.release.outputs.release_created }}
 
@@ -51,6 +51,6 @@ jobs:
         with:
           context: ./Dockerfile.openfaas
           push: true
-          tags: mailess:openfaas-${{ steps.release.outputs.tag_name }}
+          tags: ghcr.io/telostat/mailess:openfaas-${{ steps.release.outputs.tag_name }}
           labels: ${{ steps.meta.outputs.labels }}
         if: ${{ steps.release.outputs.release_created }}
