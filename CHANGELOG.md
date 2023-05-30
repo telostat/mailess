@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.7](https://github.com/telostat/mailess/compare/0.0.6...0.0.7) (2023-05-30)
+
+
+### Bug Fixes
+
+* add environment to release please action file ([944a63a](https://github.com/telostat/mailess/commit/944a63af18e9679d1edbc171314a44223edf512c))
+
 ## [0.0.6](https://github.com/telostat/mailess/compare/0.0.5...0.0.6) (2023-05-30)
 
 
