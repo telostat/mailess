@@ -37,15 +37,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         if: ${{ steps.release.outputs.release_created }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@91df6b874e498451163feb47610c87c4a218c1ee
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/telostat/mailess:${{ steps.release.outputs.tag_name }}
-          labels: ${{ steps.meta.outputs.labels }}
-        if: ${{ steps.release.outputs.release_created }}
-
       - name: Build and push Docker image for OpenFaas
         uses: docker/build-push-action@91df6b874e498451163feb47610c87c4a218c1ee
         with:
@@ -53,5 +44,14 @@ jobs:
           file: Dockerfile.openfaas
           push: true
           tags: ghcr.io/telostat/mailess:openfaas-${{ steps.release.outputs.tag_name }}
+          labels: ${{ steps.meta.outputs.labels }}
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@91df6b874e498451163feb47610c87c4a218c1ee
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/telostat/mailess:${{ steps.release.outputs.tag_name }}
           labels: ${{ steps.meta.outputs.labels }}
         if: ${{ steps.release.outputs.release_created }}
