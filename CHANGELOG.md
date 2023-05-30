@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.12](https://github.com/telostat/mailess/compare/0.0.11...0.0.12) (2023-05-30)
+
+
+### Bug Fixes
+
+* pull openfaas/of-watchdog from ghcr.io ([107bb1b](https://github.com/telostat/mailess/commit/107bb1b0df111d0787505e6a3a8bad72c911914c))
+
 ## [0.0.11](https://github.com/telostat/mailess/compare/0.0.10...0.0.11) (2023-05-30)
 
 
