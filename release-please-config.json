@@ -1,0 +1,13 @@
+{
+  "bootstrap-sha": "5b64f919c2c456b4213d477d4c0a9280c012d5bb",
+  "packages": {
+    ".": {
+      "include-v-in-tag": false,
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "tag-separator": "",
+      "release-type": "node",
+      "package-name": ""
+    }
+  }
+}
