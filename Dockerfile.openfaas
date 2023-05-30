@@ -1,4 +1,4 @@
-FROM openfaas/of-watchdog:0.7.2 as watchdog
+FROM ghcr.io/openfaas/of-watchdog:0.9.11 as watchdog
 
 FROM node:18-alpine as build
 
