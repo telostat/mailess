@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.8](https://github.com/telostat/mailess/compare/0.0.7...0.0.8) (2023-05-30)
+
+
+### Miscellaneous Chores
+
+* **release:** release 0.0.8 ([1c834b6](https://github.com/telostat/mailess/commit/1c834b6e3483f0b9b5150b37434f5253499a67ed))
+
 ## [0.0.7](https://github.com/telostat/mailess/compare/0.0.6...0.0.7) (2023-05-30)
 
 
