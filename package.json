@@ -1,6 +1,6 @@
 {
   "name": "mailess",
-  "version": "0.0.6-SNAPSHOT",
+  "version": "0.0.6",
   "description": "Send mail, less",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
