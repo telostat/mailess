@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.9](https://github.com/telostat/mailess/compare/0.0.8...0.0.9) (2023-05-30)
+
+
+### Miscellaneous Chores
+
+* **dev:** setup openfaas image build ([e2a9fca](https://github.com/telostat/mailess/commit/e2a9fca8ff8f5a5b5a4dd28b48a29d6743f5b633))
+
 ## [0.0.8](https://github.com/telostat/mailess/compare/0.0.7...0.0.8) (2023-05-30)
 
 
