@@ -6,7 +6,7 @@ pkgs.mkShell {
   name = "dev-shell";
 
   buildInputs = with pkgs; [
-    nodejs
+    nodejs-18_x
     nodePackages.nodemon
     nodePackages.npm-check-updates
     yarn
