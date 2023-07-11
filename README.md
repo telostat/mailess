@@ -101,12 +101,4 @@ bash send.sh
 
 ## Release Process
 
-```
-./node_modules/.bin/standard-version -t "" --dry-run  # Check output
-./node_modules/.bin/standard-version -t ""
-git push --follow-tags origin master
-docker build -f Dockerfile.openfaas --no-cache . -t telostat/mailess:openfaas-0.0.1
-docker push telostat/mailess:openfaas-0.0.1
-## Bump development version (for example from 0.0.1 to 0.0.2-SNAPSHOT) in package.json
-git commit -am "chore: bump development version to 0.0.2-SNAPSHOT"
-```
+The release process is managed by [release-please](https://github.com/googleapis/release-please). Please refer to [release-please.yml](.github/workflows/release-please.yml).
