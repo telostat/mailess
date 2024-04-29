@@ -1,4 +1,4 @@
-FROM node:18-alpine as build
+FROM node:20-alpine as build
 
 WORKDIR /usr/src/app
 
@@ -6,7 +6,7 @@ COPY src ./src
 COPY package.json tsconfig.json webpack.config.js typedoc.json ./
 RUN yarn install && yarn build
 
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
