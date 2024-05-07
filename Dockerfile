@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY src ./src
 COPY package.json tsconfig.json webpack.config.js typedoc.json ./
-RUN yarn install && yarn build
+RUN npm install && npm run build
 
 FROM node:20-alpine
 

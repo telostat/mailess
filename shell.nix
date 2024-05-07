@@ -9,7 +9,6 @@ pkgs.mkShell {
     nodejs_20
     nodePackages.nodemon
     nodePackages.npm-check-updates
-    yarn
   ];
 
   shellHook = ''

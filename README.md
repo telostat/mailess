@@ -39,8 +39,8 @@ docker run --rm -p 1025:25 -p 1080:80 tophfr/mailcatcher:0.7.1
 Build the app and run the development server:
 
 ```
-yarn build
-yarn start
+npm run build
+npm start
 ```
 
 Send an email:
@@ -69,7 +69,7 @@ ncu -u
 ## Testing
 
 ```
-yarn test
+npm run test
 ```
 
 ## Production

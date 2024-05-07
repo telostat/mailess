@@ -13,12 +13,11 @@
   "keywords": [],
   "scripts": {
     "start": "nodemon src/index.ts",
-    "build": "yarn clean && webpack && yarn docs",
+    "build": "npm run clean && webpack && npm run docs",
     "test": "jest --coverage",
     "test:ci": "cross-env CI=1 jest",
     "docs": "typedoc",
     "clean": "rm -rf dist test docs build",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('mailess must be installed with Yarn: https://yarnpkg.com/')\"",
     "prepare": "husky install"
   },
   "engines": {
@@ -71,6 +70,5 @@
       "./node_modules/.bin/prettier --write",
       "./node_modules/.bin/eslint"
     ]
-  },
-  "packageManager": "yarn@4.1.1"
+  }
 }
