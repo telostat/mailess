@@ -6,10 +6,9 @@ pkgs.mkShell {
   name = "dev-shell";
 
   buildInputs = with pkgs; [
-    nodejs-18_x
+    nodejs_20
     nodePackages.nodemon
     nodePackages.npm-check-updates
-    yarn
   ];
 
   shellHook = ''
