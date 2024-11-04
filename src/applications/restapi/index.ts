@@ -1,7 +1,8 @@
 import express from 'express';
 import multer from 'multer';
-import { sendmail } from './endpoints/sendmail';
 import { notification } from './endpoints/notification';
+import { sendmail } from './endpoints/sendmail';
+import { version } from './endpoints/version';
 
 /**
  * Provides an encoding for named file uploads.
@@ -67,6 +68,7 @@ export function runApplication(config: AppConfig): void {
   ]);
 
   // Define endpoints:
+  app.get('/version', version);
   app.post('/sendmail', uploadsMiddleware, sendmail);
   app.post('/notification', uploadsMiddleware, notification);
 
