@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { unlink } from 'node:fs';
 import { Address, Attachments, Recipient, RecipientType } from '../../../commons';
 import { templatedMjmlEmailer } from '../../../implementations/programs';
 import { SimpleSMTPConfig } from '../../../implementations/senders';
@@ -65,6 +66,13 @@ function readRequest(request: Request): Promise<Input> {
   const mjmTemplateReader = readFile(mjmTemplate.path, { encoding: 'utf8' });
   const txtTemplateReader = txtTemplate ? readFile(txtTemplate.path, { encoding: 'utf8' }) : undefined;
 
+  // Delete uploaded metadata and templates
+  [metadata, mjmTemplate, txtTemplate].forEach((element) => {
+    unlink(`./${element.path}`, (err) => {
+      if (err) throw err;
+    });
+  });
+
   // Attempt to build the request input:
   return Promise.all([metadataReader, mjmTemplateReader, txtTemplateReader]).then(
     ([metadataC, mjmTemplate, txtTemplate]) => {
@@ -128,7 +136,16 @@ export async function sendmail(request: Request, response: Response): Promise<vo
 
       // Run the Mailess program and return:
       program(input.subject, input.from, input.recipients, input.context, input.attachments).then(
-        (ret) => response.send({ status: 'SUCCESS', data: ret }),
+        (ret) => {
+          // Delet uploaded attachments
+          input.attachments.forEach((element) => {
+            unlink(`./${element.path}`, (err) => {
+              if (err) throw err;
+            });
+          });
+
+          response.send({ status: 'SUCCESS', data: ret });
+        },
         (err) => {
           if (err instanceof MailessError) {
             response.status(400).send({ status: 'ERROR', data: err.message });
