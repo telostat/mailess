@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.0.13](https://github.com/telostat/mailess/compare/0.0.12...0.0.13) (2025-01-08)
+
+
+### Features
+
+* add version endpoint ([7cc2033](https://github.com/telostat/mailess/commit/7cc203316578c370fca24c175c99dd867852cd87))
+
 ## [0.0.12](https://github.com/telostat/mailess/compare/0.0.11...0.0.12) (2023-05-30)
 
 
