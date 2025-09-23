@@ -21,7 +21,7 @@
     "prepare": "husky install"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "dependencies": {
     "express": "^4.21.2",
