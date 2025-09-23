@@ -157,3 +157,4 @@ src/**.js
 .env
 uploads
 docs
+.direnv/
