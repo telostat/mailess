@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [0.1.0](https://github.com/telostat/mailess/compare/0.0.12...0.1.0) (2025-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported node version is now 22
+
+### Features
+
+* add version endpoint ([7cc2033](https://github.com/telostat/mailess/commit/7cc203316578c370fca24c175c99dd867852cd87))
+
+
+### Miscellaneous Chores
+
+* upgrade to minimum node version to 22 ([077ff9a](https://github.com/telostat/mailess/commit/077ff9a288f2896bd314b015abe507ecafd3adff))
+
 ## [0.0.12](https://github.com/telostat/mailess/compare/0.0.11...0.0.12) (2023-05-30)
 
 
