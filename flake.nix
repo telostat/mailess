@@ -20,9 +20,6 @@
             nixpkgs.nodePackages.npm-check-updates
 
           ];
-          shellHook = ''
-            export SHELL=/run/current-system/sw/bin/zsh
-          '';
         };
       }
     );
